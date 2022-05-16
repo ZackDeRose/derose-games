@@ -151,11 +151,17 @@ function updatePaddle(paddle: Paddle): Paddle {
         return 0;
     }
   }
+  const middlePosition =
+    paddle.middlePosition +
+    convertInstruction(paddle.currentInstruction) * PADDLE_SPEED;
   return {
     ...paddle,
     middlePosition:
-      paddle.middlePosition +
-      convertInstruction(paddle.currentInstruction) * PADDLE_SPEED,
+      middlePosition < PADDLE_LENGTH / 2
+        ? PADDLE_LENGTH / 2
+        : middlePosition > BOARD_HEIGHT - PADDLE_LENGTH / 2
+        ? BOARD_HEIGHT - PADDLE_LENGTH / 2
+        : middlePosition,
   };
 }
 

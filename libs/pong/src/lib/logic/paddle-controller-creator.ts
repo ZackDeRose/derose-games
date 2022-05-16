@@ -46,7 +46,6 @@ export function createPaddleControllerCreator(
         canvas
       )
     )
-    // shareReplay(1)
   );
   paddleController$.subscribe();
   const paddleController: PaddleController = {
@@ -60,8 +59,6 @@ export function createPaddleControllerCreator(
       shareReplay(1)
     ),
   };
-  // paddleController.action.subscribe();
-  // paddleController.instruction.subscribe();
   return {
     factory,
     // eslint-disable-next-line

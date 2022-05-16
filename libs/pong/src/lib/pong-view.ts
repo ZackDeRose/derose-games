@@ -1,3 +1,4 @@
+import { filter } from 'rxjs';
 import {
   BALL_RADIUS,
   BOARD_HEIGHT,
@@ -12,7 +13,9 @@ export function createPongGameView(game: PongGame, canvas: HTMLCanvasElement) {
   if (!context) {
     throw Error('unable to create canvas context');
   }
-  game.state$.subscribe((gameState) => drawState(gameState, context));
+  game.state$
+    .pipe(filter(({ lastEvent }) => lastEvent === 'frame advance'))
+    .subscribe((gameState) => drawState(gameState, context));
 }
 
 function drawState(gameState: PongGameState, ctx: CanvasRenderingContext2D) {

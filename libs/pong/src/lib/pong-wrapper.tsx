@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { createAiPaddleController } from './logic/ai-paddle-controller';
-import { PaddleController, PaddleControllerFactory } from './logic/interfaces';
+import { PaddleControllerFactory } from './logic/interfaces';
 import { createMouseController } from './logic/mouse-controller';
 import Pong from './pong';
 import { Select } from './select';
@@ -35,9 +35,8 @@ export function PongWrapper() {
         onChange={(value) => setRightController(() => controllers[value])}
       ></Select>
       <button
-        disabled={leftController == undefined || rightController == undefined}
+        disabled={!leftController || !rightController}
         onClick={() => {
-          console.log('button click');
           setState('playing');
         }}
       >

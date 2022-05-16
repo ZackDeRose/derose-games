@@ -51,7 +51,7 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "portfolio:build",
-        "hmr": true
+        "hmr": false
       },
       "configurations": {
         "development": {

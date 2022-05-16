@@ -1,8 +1,6 @@
 import { useEffect, useRef } from 'react';
-import { createAiPaddleController } from './logic/ai-paddle-controller';
 import { BOARD_HEIGHT, BOARD_WIDTH } from './logic/constants';
 import { PaddleControllerFactory } from './logic/interfaces';
-import { createMouseController } from './logic/mouse-controller';
 import { createPaddleControllerCreator } from './logic/paddle-controller-creator';
 import { createPongGame } from './logic/pong';
 import { createPongGameView } from './pong-view';
@@ -34,7 +32,7 @@ export function Pong({ leftController, rightController }: PongProps) {
     });
     createPongGameView(pongGame, canvasRef.current);
   }
-  useEffect(init, []);
+  useEffect(init);
   return <canvas ref={canvasRef} height={BOARD_HEIGHT} width={BOARD_WIDTH} />;
 }
 

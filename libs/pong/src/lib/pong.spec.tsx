@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import Pong from './pong';
+import { PongWrapper } from './pong-wrapper';
 
 describe('Pong', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Pong />);
+    const { baseElement } = render(<PongWrapper />);
     expect(baseElement).toBeTruthy();
   });
 });
