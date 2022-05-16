@@ -174,17 +174,14 @@ function updateBall(
   const afterCheckingTopWall = adjustForHittingTopWall(afterMovement);
   const afterCheckingBottomWall =
     adjustForHittingBottomWall(afterCheckingTopWall);
-  const { ball: afterLeftWall, score: isLeftScore } = adjustForHittingLeftWall(
+  const { ball: afterLeftWall, score: isRightScore } = adjustForHittingLeftWall(
     afterCheckingBottomWall,
     leftPaddle
   );
-  const { ball: afterRightWall, score: isRightScore } =
+  const { ball: afterRightWall, score: isLeftScore } =
     adjustForHittingRightWall(afterLeftWall, rightPaddle);
   if (isLeftScore) {
-    return {
-      ball: resetBall(),
-      scorer: 'left',
-    };
+    return { ball: resetBall(), scorer: 'left' };
   }
   if (isRightScore) {
     return { ball: resetBall(), scorer: 'right' };
