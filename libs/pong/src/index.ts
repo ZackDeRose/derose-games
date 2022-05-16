@@ -1,1 +1,1 @@
-export * from './lib/pong';
+export * from './lib/pong-wrapper';

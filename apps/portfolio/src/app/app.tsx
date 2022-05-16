@@ -1,11 +1,12 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { PongWrapper } from '@derose-games/pong';
 import styles from './app.module.scss';
 import NxWelcome from './nx-welcome';
 
 export function App() {
   return (
     <>
-      <NxWelcome title="portfolio" />
+      <PongWrapper />
       <div />
     </>
   );
